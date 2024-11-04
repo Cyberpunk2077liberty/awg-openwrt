@@ -1,9 +1,10 @@
 name: Create Release on Tag
-# on: [workflow_dispatch]
 on:
   push:
     tags:
-      - "v*.*.*"
+      - "v*"
+  # workflow_dispatch позволяет запускать вручную
+  workflow_dispatch:
 
 jobs:
   build:
@@ -114,4 +115,3 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: awgrelease/*.ipk
-
